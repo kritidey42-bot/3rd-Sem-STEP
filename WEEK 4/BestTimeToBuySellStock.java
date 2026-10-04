@@ -1,0 +1,38 @@
+/*
+ * Program Name: Best Time to Buy and Sell Stock
+ * Description: This program finds the maximum profit
+ *              from buying and selling a stock.
+ */
+
+public class BestTimeToBuySellStock {
+
+    public static int maxProfit(int[] prices) {
+
+        int lowestPrice = prices[0];
+        int maximumProfit = 0;
+
+        for (int i = 1; i < prices.length; i++) {
+
+            if (prices[i] < lowestPrice) {
+                lowestPrice = prices[i];
+            }
+
+            int profit = prices[i] - lowestPrice;
+
+            if (profit > maximumProfit) {
+                maximumProfit = profit;
+            }
+        }
+
+        return maximumProfit;
+    }
+
+    public static void main(String[] args) {
+
+        int[] prices = {7, 1, 5, 3, 6, 4};
+
+        int result = maxProfit(prices);
+
+        System.out.println("Maximum Profit: " + result);
+    }
+}
